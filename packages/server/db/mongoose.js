@@ -1,3 +1,3 @@
 import mongoose from 'mongoose'
 
-mongoose.connect('mongodb+srv://tejas:modi@tejas.ric8a.mongodb.net/mern-app?retryWrites=true&w=majority')
+mongoose.connect(`mongodb+srv://${process.env.URL_API}?retryWrites=true&w=majority`)

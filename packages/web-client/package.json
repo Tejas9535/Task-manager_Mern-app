@@ -2,12 +2,6 @@
   "name": "front-end",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "eslint": "^8.15.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -32,9 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "echo testing react app",
-    "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

@@ -4,9 +4,7 @@
   "private": true,
   "devDependencies": {
     "eslint": "^8.15.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2"
+    "jest": "^28.1.0"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -31,8 +29,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "echo testing react app",
     "eject": "react-scripts eject",
+    "test": "jest",
     "lint": "eslint .",
     "lint:fix": "eslint --fix --ext .js,.jsx ."
   },

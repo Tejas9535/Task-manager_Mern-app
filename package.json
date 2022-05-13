@@ -18,7 +18,7 @@
     "bootstrap": "lerna bootstrap --hoist",
     "start": "lerna run start",
     "diff": "lerna diff",
-    "test": "lerna run test",
+    "test": "jest",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix"
   }

@@ -17,6 +17,6 @@ app.use(userRouter);
 app.use(taskRouter);
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(3001, () => {
-    console.log('runing server 0n');
-});
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT);

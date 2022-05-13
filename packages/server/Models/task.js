@@ -1,23 +1,22 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
-    Title:{
-        type:String,
-        required:true,
-        minlength:6,
+    Title: {
+        type: String,
+        required: true,
+        minlength: 6,
     },
-    completed:{
-        type:Boolean,
-        required:true
+    completed: {
+        type: Boolean,
+        required: true
     },
-    owner:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
-        ref:'User'
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
-},{timestamps:true})
+}, { timestamps: true });
 
-const Task = mongoose.model('task', schema)
+const Task = mongoose.model('task', schema);
 
-
-export default Task
+export default Task;

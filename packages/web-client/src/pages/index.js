@@ -1,11 +1,11 @@
-import Dashboard from "./Dashboard";
-import Login from "./Login";
-import Profile from "./Profile";
-import Registration from "./Registration";
+import Dashboard from './Dashboard';
+import Login from './Login';
+import Profile from './Profile';
+import Registration from './Registration';
 
-export default[
+export default [
     Login,
     Registration,
     Dashboard,
     Profile
-]
+];

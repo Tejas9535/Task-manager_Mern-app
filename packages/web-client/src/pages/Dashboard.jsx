@@ -1,81 +1,58 @@
-import { base, Box, Grommet,grommet,Heading,Spinner,Text } from 'grommet';
+/* eslint-disable camelcase */
 import React from 'react';
-import Cookies from 'js-cookie'
-// import DataDisplay from '../components/DataDisplay';
+import { base, Box, Grommet, } from 'grommet';
+import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import MyFooter from '../components/Footer';
 import Navbar from '../components/Navbar';
 import DataDisplay from '../components/DataDisplay';
-import { useDispatch } from 'react-redux';
 import { Logout_User } from '../actions/type';
-// import {api} from '../components/DataDisplay.jsx'
-import instance from '../api/private'
-import { useNavigate } from "react-router-dom";
+import instance from '../api/private';
 
-
-
-
-const Spiner = () =>{
-    return(
-        <Box gap="large" pad="medium">
-           <Box align="center" direction="row" gap="small">
-             <Spinner
-               border={[
-                  { side: 'all', color: 'transparent', size: 'medium' },
-                  { side: 'horizontal', color: 'brand', size: 'medium' },
-                ]}
-              />
-              <Text>Loading...</Text>
-            </Box>
-        </Box>
-    )
-}
 const Dashboard = () => {
-  // const [isAuth,setIsAuth] = (false)
-  const cookie = JSON.parse(Cookies.get('user'))
-  const user = cookie.user
-  
-  // console.log(user);
-  const token= cookie.token
+  const cookie = JSON.parse(Cookies.get('user'));
+  const user = cookie.user;
+
+  const token = cookie.token;
   const navigate = useNavigate();
-  // console.log(cookie);
-  // const token = JSON.parse(cookie).token
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const logout = () => {
-    
-      instance(token).post('/user/logout',user).then((res) => {
-        if(res.status == 200){
-          Cookies.remove('user')
-          Cookies.remove('tasks')
-          navigate('/')
+
+      instance(token).post('/user/logout', user).then((res) => {
+        if (res.status == 200) {
+          Cookies.remove('user');
+          Cookies.remove('tasks');
+          navigate('/');
         }
       }).catch((err) => {
         console.log('err', err);
       });
-    
+
       dispatch({
-        type:Logout_User,
-        payload:cookie
-      })
-  }
+        type: Logout_User,
+        payload: cookie
+      });
+  };
     return (
-        <Grommet  theme={base}>
-            <Box overflow={{horizontal:'hidden'}}>
-              <Navbar user={user.Firstname +' '+user.Lastname} logout={logout} />
-                <DataDisplay/>
-              <MyFooter/>
-            </Box>
-        </Grommet>
+      <Grommet theme={base}>
+        <Box overflow={{ horizontal: 'hidden' }}>
+          <Navbar user={`${user.Firstname } ${user.Lastname}`} logout={logout} />
+          <DataDisplay />
+          <MyFooter />
+        </Box>
+      </Grommet>
     );
-}
+};
 
 // const Dashboard = () => {
 
 // }
 
 export default {
-  routeProps:{
-    path:'dashboard',
-    element:<Dashboard/>
+  routeProps: {
+    path: 'dashboard',
+    element: <Dashboard />
   },
-  name:'Dashboard'
+  name: 'Dashboard'
 };

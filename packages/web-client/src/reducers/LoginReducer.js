@@ -1,17 +1,16 @@
-import Cookies from "js-cookie";
-import { Login_User, Logout_User, Register_user } from "../actions/type";
-// import api from '../components/DataDisplay.jsx'
-// import http from '../common-htttp';
-// import UserServices from "../services/Login";
-let data = Cookies.get("user") == undefined ? []:JSON.parse(Cookies.get("user"))
+/* eslint-disable camelcase */
+import Cookies from 'js-cookie';
+import { Login_User, Logout_User, Register_user } from '../actions/type';
 
-
-const LoginReducer = (initialState=data, action) => {
-    const {type, payload} = action;
-    // console.log('lr',state);
-    switch(type){
+const data = Cookies.get('user') === undefined ? [] : JSON.parse(Cookies.get('user'));
+// eslint-disable-next-line default-param-last
+const LoginReducer = (initialState = data, action) => {
+    const { type, payload } = action;
+    switch (type) {
         case Login_User:
-            return initialState = payload
+            /* eslint-disable no-param-reassign */
+            /* eslint-disable no-return-assign */
+            return initialState = payload;
         case Register_user:
             return alert('user created in sucessfully');
         case Logout_User:
@@ -19,5 +18,5 @@ const LoginReducer = (initialState=data, action) => {
     default:
         return initialState;
     }
-}
-export default LoginReducer
+};
+export default LoginReducer;
